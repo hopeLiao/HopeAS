@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="false" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="com.hope.core.hope_internal"/>
+    <classEntry path="com.hope.numerics.BarrettReduction"/>
+    <classEntry path="com.hope.numerics.BigInteger"/>
+    <classEntry path="com.hope.numerics.ClassicReduction"/>
+    <classEntry path="com.hope.numerics.IReductionAlgorithm"/>
+    <classEntry path="com.hope.numerics.MontgomeryReduction"/>
+    <classEntry path="com.hope.numerics.NullReduction"/>
+    <classEntry path="com.hope.util.StringUtil"/>
+    <classEntry path="com.hope.debug.Stats"/>
+    <classEntry path="com.hope.loader.Preloader"/>
+    <classEntry path="com.hope.display.ScaleBitmap"/>
+    <classEntry path="com.hope.game.util.SpeedDetector"/>
+    <classEntry path="com.hope.game.layer.MapRootLayer"/>
+    <classEntry path="com.hope.game.layer.PanelRootLayer"/>
+    <classEntry path="com.hope.game.layer.WarRootLayer"/>
+    <classEntry path="com.hope.game.layer.TipRootLayer"/>
+    <classEntry path="com.hope.game.display.Layer"/>
+    <classEntry path="com.hope.game.display.Widget"/>
+    <classEntry path="com.hope.game.display.Panel"/>
+    <classEntry path="com.hope.util.IntUtil"/>
+    <classEntry path="com.hope.util.ColorUtil"/>
+    <classEntry path="com.hope.debug.SWFProfiler"/>
+    <classEntry path="com.hope.display.BitmapText"/>
+    <classEntry path="com.hope.util.GeomUtil"/>
+    <classEntry path="com.hope.display.util.DisplayObjectAdjustColor"/>
+    <classEntry path="com.hope.display.util.DisplayObjectFilter"/>
+    <classEntry path="com.hope.display.util.DisplayObjectTransformer"/>
+    <classEntry path="com.hope.util.Ticker"/>
+    <classEntry path="com.hope.event.TickerEvent"/>
+    <classEntry path="com.hope.util.MathUtil"/>
+    <classEntry path="com.hope.util.JavaScriptUtils"/>
+    <classEntry path="com.hope.util.FunctionUtil"/>
+    <classEntry path="com.hope.util.DisplayObjectUtil"/>
+    <classEntry path="com.hope.util.BitmapDataUtil"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
