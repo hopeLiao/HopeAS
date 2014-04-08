@@ -35,6 +35,11 @@
     <classEntry path="com.hope.util.FunctionUtil"/>
     <classEntry path="com.hope.util.DisplayObjectUtil"/>
     <classEntry path="com.hope.util.BitmapDataUtil"/>
+    <classEntry path="com.hope.display.Spinner"/>
+    <classEntry path="com.hope.display.Mosaic"/>
+    <classEntry path="com.hope.util.swf.SWFExplorer"/>
+    <classEntry path="com.hope.util.swf.SWFExplorerErrorEvent"/>
+    <classEntry path="com.hope.util.swf.SWFExplorerEvent"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
