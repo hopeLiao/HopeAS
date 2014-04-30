@@ -40,6 +40,17 @@
     <classEntry path="com.hope.util.swf.SWFExplorer"/>
     <classEntry path="com.hope.util.swf.SWFExplorerErrorEvent"/>
     <classEntry path="com.hope.util.swf.SWFExplorerEvent"/>
+    <classEntry path="com.hope.display.CoolDown"/>
+    <classEntry path="com.hope.util.ObjectProxy"/>
+    <classEntry path="com.hope.util.ReflectUtil"/>
+    <classEntry path="com.hope.loader.HopeLoader"/>
+    <classEntry path="com.hope.loader.LoaderTask"/>
+    <classEntry path="com.hope.loader.LoaderVars"/>
+    <classEntry path="com.hope.loader.LoaderItem"/>
+    <classEntry path="com.hope.loader.BinaryItem"/>
+    <classEntry path="com.hope.loader.TextItem"/>
+    <classEntry path="com.hope.loader.ImageItem"/>
+    <classEntry path="com.hope.loader.LoaderEvent"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
