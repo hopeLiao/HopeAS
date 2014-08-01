@@ -41,7 +41,7 @@ package com.hope.loader {
 		}
 
 		public function load():void {
-			//正常情况下，只有在tasks的length不为0的时候加载才有效！这里先不做判断
+			//正常情况下，只有在url的length不为0的时候加载才有效！这里先不做判断
 			urlRequest=new URLRequest(url);
 		}
 
@@ -82,7 +82,7 @@ package com.hope.loader {
 			for each (var task:LoaderTask in tasks)
 				task.onItemProgressHandler(this, event);
 			dispatchEvent(new Event(event.type));
-			//trace(this, url, byteTotal, byteLoaded);
+			//trace("Progress", this, url, byteTotal, byteLoaded);
 		}
 
 		protected function onItemCompleteHandler(event:Event):void {
@@ -96,6 +96,7 @@ package com.hope.loader {
 			for each (var task:LoaderTask in tasks)
 				task.onItemOpenHandler(this, event);
 			dispatchEvent(new Event(event.type));
+			//trace("Open", this, url);
 		}
 	}
 }

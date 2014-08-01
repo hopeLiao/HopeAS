@@ -78,7 +78,6 @@ package com.hope.loader {
 				byteLoaded+=item.byteLoaded;
 			}
 			dispatchEvent(new ProgressEvent(event.type, event.bubbles, event.cancelable, byteLoaded, byteTotal));
-			HopeLoader.instance.debug();
 		}
 
 		public function onItemCompleteHandler(item:LoaderItem, event:Event):void {

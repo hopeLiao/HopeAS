@@ -64,7 +64,8 @@ package com.hope.loader {
 			var item:LoaderItem=itemDic[url];
 			if (item) {
 				var bmp:Bitmap=item.content;
-				return bmp.bitmapData;
+				if (bmp)
+					return bmp.bitmapData;
 			}
 			return null;
 		}
@@ -96,6 +97,7 @@ package com.hope.loader {
 		protected static const MAXCONNECTION:int=3;
 		protected static const MAXPRIORITY:int=3;
 		protected static const MINPRIORITY:int=1;
+		protected static const NMLPRIORITY:int=2;
 		private var beLoadItems:Array=[];
 		private var loadingItems:Array=[];
 
@@ -110,9 +112,9 @@ package com.hope.loader {
 		 * @param item loader的资源是没有加载过的，如果对于已经加载的资源则自动忽略
 		 * @param priority loader的优先级 1 2 3 3最高,1最低,2是默认
 		 */
-		hope_internal function loadItem(item:LoaderItem, priority:int=2):void {
+		hope_internal function loadItem(item:LoaderItem, priority:int=NMLPRIORITY):void {
 			if (priority > MAXPRIORITY || priority < MINPRIORITY)
-				priority=2;
+				priority=NMLPRIORITY;
 			var items:Array=beLoadItems[priority];
 			if (!items) {
 				items=[];
@@ -159,7 +161,7 @@ package com.hope.loader {
 			if (loadingItems.length < MAXCONNECTION) {
 				var items:Array;
 				var item:LoaderItem;
-				for (var i:int=3; i > 0; i--) {
+				for (var i:int=MAXPRIORITY; i >= MINPRIORITY; i--) {
 					items=beLoadItems[i];
 					if (items && items.length > 0) {
 						item=items.shift();
