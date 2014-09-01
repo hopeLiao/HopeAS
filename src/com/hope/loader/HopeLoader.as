@@ -112,7 +112,7 @@ package com.hope.loader {
 		 * @param item loader的资源是没有加载过的，如果对于已经加载的资源则自动忽略
 		 * @param priority loader的优先级 1 2 3 3最高,1最低,2是默认
 		 */
-		hope_internal function loadItem(item:LoaderItem, priority:int=NMLPRIORITY):void {
+		hope_internal function addItem(item:LoaderItem, priority:int=NMLPRIORITY):void {
 			if (priority > MAXPRIORITY || priority < MINPRIORITY)
 				priority=NMLPRIORITY;
 			var items:Array=beLoadItems[priority];
@@ -124,40 +124,16 @@ package com.hope.loader {
 				return;
 			items.push(item);
 			addEvent(item);
-			tryLoadNext();
+			tryDoLoad();
 		}
 
-		protected function onItemSecurityError(event:Event):void {
-			removePrev(event.target as LoaderItem);
-		}
-
-		protected function onItemError(event:IOErrorEvent):void {
-			removePrev(event.target as LoaderItem);
-		}
-
-		protected function onItemComplete(event:Event):void {
-			removePrev(event.target as LoaderItem);
-		}
-
-		private function addEvent(item:LoaderItem):void {
-			item.addEventListener(Event.COMPLETE, onItemComplete, false, 0, true);
-			item.addEventListener(IOErrorEvent.IO_ERROR, onItemError, false, 0, true);
-			item.addEventListener(SecurityErrorEvent.SECURITY_ERROR, onItemSecurityError, false, 0, true);
-		}
-
-		private function delEvent(item:LoaderItem):void {
-			item.removeEventListener(Event.COMPLETE, onItemComplete);
-			item.removeEventListener(IOErrorEvent.IO_ERROR, onItemError);
-			item.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onItemSecurityError);
-		}
-
-		private function removePrev(item:LoaderItem):void {
+		private function delItem(item:LoaderItem):void {
 			loadingItems.splice(loadingItems.indexOf(item), 1);
 			delEvent(item);
-			tryLoadNext();
+			tryDoLoad();
 		}
 
-		private function tryLoadNext():void {
+		private function tryDoLoad():void {
 			if (loadingItems.length < MAXCONNECTION) {
 				var items:Array;
 				var item:LoaderItem;
@@ -173,6 +149,30 @@ package com.hope.loader {
 					item.load();
 				}
 			}
+		}
+
+		protected function onItemSecurityError(event:Event):void {
+			delItem(event.target as LoaderItem);
+		}
+
+		protected function onItemError(event:IOErrorEvent):void {
+			delItem(event.target as LoaderItem);
+		}
+
+		protected function onItemComplete(event:Event):void {
+			delItem(event.target as LoaderItem);
+		}
+
+		private function addEvent(item:LoaderItem):void {
+			item.addEventListener(Event.COMPLETE, onItemComplete);
+			item.addEventListener(IOErrorEvent.IO_ERROR, onItemError);
+			item.addEventListener(SecurityErrorEvent.SECURITY_ERROR, onItemSecurityError);
+		}
+
+		private function delEvent(item:LoaderItem):void {
+			item.removeEventListener(Event.COMPLETE, onItemComplete);
+			item.removeEventListener(IOErrorEvent.IO_ERROR, onItemError);
+			item.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onItemSecurityError);
 		}
 	}
 }
